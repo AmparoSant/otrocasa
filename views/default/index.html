@@ -1,52 +1,135 @@
 {{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
 {{extend 'layout.html'}}
 
-{{block header}}
-    <header class="container-fluid background">
-      <div class="jumbotron text-center">
-        {{if response.title:}}
-        <h1>{{=response.title}}
-          <small>{{=response.subtitle or ''}}</small></h1>
-        {{pass}}
-      </div>
-    </header>
-{{end}}
+{{extend 'layout.html'}}
+<!DOCTYPE html>
+<html>
 
-{{if 'message' in globals():}}
-<h2>{{=message}}</h2>
-<p class="lead">{{=T('How did you get here?')}}</p>
-<ol>
-  <li>{{=T('You are successfully running web2py')}}</li>
-  <li>{{=XML(T('You visited the url %s', A(request.env.path_info,_href=request.env.path_info)))}}</li>
-  <li>{{=XML(T('Which called the function %s located in the file %s',
-    (A(request.function+'()',_href='#'),
-    A('web2py/applications/%(application)s/controllers/%(controller)s.py' % request,
-    _href=URL('admin','default','peek', args=(request.application,'controllers',request.controller+'.py'))))))}}</li>
-  <li>{{=XML(T('The output of the file is a dictionary that was rendered by the view %s',
-    A('web2py/applications/%(application)s/views/%(controller)s/index.html' % request,
-    _href=URL('admin','default','peek',args=(request.application,'views',request.controller,'index.html')))))}}</li>
-  <li>{{=T('You can modify this application and adapt it to your needs')}}</li>
-</ol>
-{{elif 'content' in globals():}}
-{{=content}}
-{{else:}}
-{{=BEAUTIFY(response._vars)}}
-{{pass}}
+<head>
+	
+<h1 style="color:#0000ff;text-align:center;text-decoration:underline">CREACIÓN PÁGINA WEB</h1>
 
-{{block right_sidebar}}
-<div class="panel panel-info">
-  <div class="panel-heading"><h3 class="panel-title"><a class="btn-block"
-      href="{{=URL('admin','default','index')}}">
-      <i class="glyphicon glyphicon-cog"></i>
-      {{=T("admin")}}
-    </a></h3></div>
-  <div class="panel-body">
-    {{=T("Don't know what to do?")}}
-  </div>
-  <ul class="list-group">
-    <li class="list-group-item">{{=A(T("Online examples"), _href=URL('examples','default','index'))}}</li>
-    <li class="list-group-item"><a href="http://web2py.com">web2py.com</a></li>
-    <li class="list-group-item"><a href="http://web2py.com/book">{{=T('Documentation')}}</a></li>
-  </ul>
-</div>
-{{end}}
+
+
+</head>
+
+<body>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+
+<p>Emisora radio máxima fm</p>
+<a href="http://www.maxima.fm/">
+<img src="http://www.maxima.fm/wp-content/uploads/2014/10/Maxima_Logo_400x400.png" /></a>
+<p><a href="https://www.youtube.com/watch?v=C6Le7luzv2Y&list=PL4txsxk5m4shMtixYVF04rEib0elcgkgT"> Música Máxima FM</a></p>
+	
+<p>
+<table border=4>
+<caption><strong><h3>Canciones top 10</h3></strong></caption>
+<tr>
+<td><strong>Lista de Éxitos</strong></td>
+<td><strong>Votos</strong></td>
+<td><strong>Posición</strong></td>
+</tr>
+	 
+<tr>
+<td>Canción1</td>  
+<td>180</td>
+<td>1ª</td>
+</tr>
+<tr>
+<td>Canción2</td>
+<td>100</td>
+<td>2ª</td>
+</tr>
+	 
+<tr>
+<td>Canción3</td>
+<td>78</td>
+<td>3ª</td>
+</tr>
+</table>
+</p>
+
+<p>	
+
+<form action="registrardatos.php" method="post">
+
+Seleccione las canciones que quiera votar y la puntuación para cada una de ellas<br>
+
+<input type="checkbox" name="canción">Canción1<br>
+<input type="radio" name="votos" value="2">50<br>
+<input type="radio" name="votos" value="3">30<br>
+<input type="radio" name="votos" value="4">10<br>
+
+<input type="checkbox" name="canción">Canción2<br>
+<input type="radio" name="votos" value="2">50<br>
+<input type="radio" name="votos" value="3">30<br>
+<input type="radio" name="votos" value="4">10<br>
+
+<input type="checkbox" name="canción">Canción3<br>
+<input type="radio" name="votos" value="2">50<br>
+<input type="radio" name="votos" value="3">30<br>
+<input type="radio" name="votos" value="4">10<br>
+</p>
+
+<p>
+Comentarios:<br>
+<textarea name="comentarios" rows="5" cols="60"></textarea><br>
+<input type="submit" value="Enviar">
+<input type="reset" value="borrar">
+</p>
+
+
+<h3>¿Quieres pertenecer a nuestro club de fans? Regístrate rellenando el siguiente formulario</h3>   
+
+
+<P>
+Ingrese su nombre:
+<input type="text" name="nombre" size="30"><br>
+</p>
+
+<p>
+Ingrese su clave: 
+<input type="password" name="clave" maxlength="12" size="12">
+</br>
+
+<p>
+Ingrese su mail:
+<input type="text" name="mail" size="50"><br>
+</p>
+
+<p>
+Seleccione su pais:
+<select name="pais">
+<option value="1">Argentina</option>
+<option value="2">España</option>
+<option value="3">México</option>
+<option value="4">Guatemala</option>
+<option value="5">Honduras</option>
+<option value="7">El Salvador</option>
+<option value="8">Venezuela</option>
+<option value="9">Colombia</option>
+<option value="10">Cuba</option>
+<option value="11">Bolivia</option>
+<option value="13">Perú</option>
+<option value="14">Ecuador</option>
+<option value="15">Paraguay</option>
+<option value="16">Uruguay</option>
+<option value="17">Chile</option>
+</select>
+<br>
+</p>
+
+<p>
+Suba una foto:
+<input type="file" name="foto">
+</p>
+
+<p><input type="submit" value="Enviar"></p>
+
+<p>No dude en ponerse en contacto con nosotros vía email:  
+<a href="mailto:amparo.santgsantg@gmail.com">Enviar mail.</a></p>
+</form>
+
+
+</body>
+</html>
